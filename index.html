@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Portfolio</title>
+    <style>
+        /* UNIVERSAL RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 10%;
+            background-color: #1e293b;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #f8fafc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 10%;
+            text-align: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+
+        .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; }
+        .highlight { color: #38bdf8; }
+        .tagline { color: #94a3b8; font-size: 1.2rem; margin-bottom: 1rem; }
+        
+        .projects-section { padding: 4rem 10%; }
+        .section-title { font-size: 2rem; margin-bottom: 2rem; text-align: center; }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .card-link { color: #38bdf8; text-decoration: none; font-weight: bold; }
+        /* Skills Section Styling */
+.skills-section {
+    padding: 4rem 10%;
+    background-color: #0f172a;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-card {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+.skill-card h3 {
+    color: #38bdf8;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 0.5rem;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.skill-tags span {
+    background-color: #0f172a;
+    color: #f8fafc;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    border: 1px solid #334155;
+}
+/* Education & Experience Section */
+.education-section {
+    padding: 4rem 10%;
+    background-color: #1e293b;
+}
+
+.education-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.info-card {
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 1.8rem;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.card-header h3 {
+    color: #38bdf8;
+    font-size: 1.3rem;
+}
+
+.date-badge {
+    background-color: #1e293b;
+    color: #94a3b8;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.sub-title {
+    color: #f8fafc;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.card-list {
+    color: #94a3b8;
+    padding-left: 1.2rem;
+    line-height: 1.8;
+}
+
+/* Connect & Resume Section */
+.connect-section {
+    padding: 4rem 10%;
+    background-color: #0f172a;
+    text-align: center;
+}
+
+.connect-subtitle {
+    color: #94a3b8;
+    margin-bottom: 2rem;
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    max-width: 850px;
+    margin: 0 auto 2.5rem;
+}
+
+.social-card {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: #f8fafc;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.social-card:hover {
+    transform: translateY(-5px);
+    border-color: #38bdf8;
+}
+
+.social-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.social-card h4 {
+    color: #38bdf8;
+    margin-bottom: 0.3rem;
+}
+
+.social-card p {
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
+
+.resume-wrapper {
+    margin-top: 1.5rem;
+}
+
+.resume-btn {
+    display: inline-block;
+    font-size: 1.05rem;
+    padding: 0.9rem 2rem;
+}
+</style>
+    
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h3>Hi, I'm <span class="highlight">Prakshitha</span></h3>
+        <p class="tagline">Passionate About Coding | HTML | CSS | JavaScript |Python | Java| Web Designing | Web Development</p>
+        <p class="bio">Aspiring Web Developer with basic knowledge of HTML, CSS, JavaScript, and responsive web design. Completed a web development internship and academic projects, with a strong interest in front-end development and a commitment to continuously learning and improving technical skills.</p>
+        <div class="hero-buttons">
+            <a href="#projects" class="btn primary-btn">View Projects</a>
+            <a href="#contact" class="btn secondary-btn">Contact Me</a>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section class="projects-section" id="projects">
+    <h2 class="section-title">Featured Projects</h2>
+    
+    <div class="projects-grid">
+        <!-- Project Card 1 -->
+        <article class="project-card">
+            <div class="card-body">
+                <h3>Autonomous Navigation Robot Dashboard</h3>
+                <p>This project involves developing a web dashboard for monitoring the robot,low-battery alerts,battery level display and mode of operations.</p>
+                <div class="tech-stack">
+                    <span>HTML5, </span>
+                    <span>CSS3, </span>
+                    <span>JavaScript, </span>
+                    <span>Node.js, </span>
+                    <span>python. </span>
+                </div>
+                
+            </div>
+        </article>
+
+        <!-- Project Card 2 -->
+        <article class="project-card">
+            <div class="card-body">
+                <h3>Intelligent Spraying System</h3>
+                <p>This project involves developing an intelligent spraying system for agricultural use, utilizing IoT sensors to monitor crop conditions and optimize spraying efficiency.</p>
+                <div class="tech-stack">
+                    <span>Arduino, </span>
+                    <span>IoT, </span>
+                    <span>Sensors. </span>
+                </div>
+                
+            </div>
+        </article>
+
+    </div>
+</section>
+<!-- Skills Section -->
+<section class="skills-section" id="skills">
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-grid">
+
+        <!-- Programming Languages Card -->
+        <div class="skill-card">
+            <h3>Programming Languages</h3>
+            <div class="skill-tags">
+                <span>C / C++</span>
+                <span>Python</span>
+                <span>Java</span>
+                <span>HTML5 / CSS3</span>
+                <span>JavaScript</span>
+            </div>
+        </div>
+
+        <!-- Tools & Concepts Card -->
+        <div class="skill-card">
+            <h3>Tools & Automation</h3>
+            <div class="skill-tags">
+                <span>Git / GitHub</span>
+                <span>VS Code</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- Education & Experience Section -->
+<section class="education-section" id="education">
+    <h2 class="section-title">Education & Internship</h2>
+    
+    <div class="education-container">
+        <!-- Degree Card -->
+        <div class="info-card">
+            <div class="card-header">
+                <h3>Bachelor of Engineering</h3>
+                <span class="date-badge">2023 - 2027</span>
+            </div>
+            <p class="sub-title">SNS College of Technology</p>
+            <ul class="card-list">
+                <li><strong>Focus:</strong> Software Development, Web Designing, Web Development.</li>
+                <li><strong>Relevant Coursework:</strong> Python, Java, Data Structures, Web Development.</li>
+            </ul>
+        </div>
+
+        <!-- Experience Card -->
+        <div class="info-card">
+            <div class="card-header">
+                <h3>Web Development Intern</h3>
+                <span class="date-badge">Completed</span>
+            </div>
+            <p class="sub-title">Practical Training</p>
+            <ul class="card-list">
+                <li>Developed responsive front-end user interfaces using HTML5, CSS3, and JavaScript.</li>
+                <li>Collaborated on building clean web layouts and styling component libraries.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Connect & Resume Section -->
+<section class="connect-section" id="contact">
+    <h2 class="section-title">Let's Connect</h2>
+    <p class="connect-subtitle">I am actively seeking entry-level roles and graduate opportunities.</p>
+
+    <div class="social-grid">
+        <a href="mailto:your.email@example.com" class="social-card">
+            <span class="social-icon">📧</span>
+            <h4>Email</h4>
+            <p>eprakshitha@gmail.com</p>
+        </a>
+
+        <a href="https://linkedin.com/in/prakshitha-easwaran" target="_blank" class="social-card">
+            <span class="social-icon">💼</span>
+            <h4>LinkedIn</h4>
+            <p>Connect on LinkedIn</p>
+        </a>
+
+        <a href="https://github.com/yourusername" target="_blank" class="social-card">
+            <span class="social-icon">💻</span>
+            <h4>GitHub</h4>
+            <p>View Repositories</p>
+        </a>
+    </div>
+
+    <div class="resume-wrapper">
+        <a href="PRAKSHITHA RESUME.pdf" download class="btn primary-btn resume-btn">📄 Download Resume (PDF)</a>
+    </div>
+</section>
+</body>
+</html>
